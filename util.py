@@ -50,20 +50,22 @@ from jwst.cube_build.cube_build_step import CubeBuildStep
 from jwst.extract_1d.extract_1d_step import Extract1dStep
 
 # Arrange our directory structure.
-# All 16 uncal files should be in the `uncal_files' folder.
+# All 16 uncal_directory files should be in the `uncal_files' folder.
 # We will place the outputs of each pipeline stage in new folders, easier to keep track of.
 here = os.getcwd()
-pardir = os.path.abspath(os.path.join(here, os.pardir))
+parent_directory = os.path.abspath(os.path.join(here, os.pardir))
 
-uncal = pardir + "/data/uncal/"
-stage1 = pardir + "/data/stage1/"
-stage1_nsclean = pardir + "/data/stage1_nsclean/"
-stage2 = pardir + "/data/stage2/"
-stage2_nsclean = pardir + "/data/stage2_nsclean/"
-stage3 = pardir + "/data/stage3/"
-poststage3 = pardir + "/data/poststage3/"  # For post-pipeline processing
+uncal_directory = parent_directory + "/data/uncal/"
+stage1_directory = parent_directory + "/data/stage1/"
+stage1_processed_directory = parent_directory + "/data/stage1_processed/"
+stage1_nsclean_directory = parent_directory + "/data/stage1_nsclean/"
+stage2_directory = parent_directory + "/data/stage2/"
+stage2_processed_directory = parent_directory + "/data/stage2_processed/"
+stage2_nsclean_directory = parent_directory + "/data/stage2_nsclean/"
+stage3_directory = parent_directory + "/data/stage3/"
+stage3_processed_directory = parent_directory + "/data/stage3_processed/"  # For post-pipeline processing
 
 # Create above folders if they don't already exist
-for folder in [uncal, stage1, stage2, stage3, poststage3]:
+for folder in [uncal_directory, stage1_directory, stage2_directory, stage3_directory, stage3_processed_directory]:
     if not os.path.exists(folder):
         os.makedirs(folder)
