@@ -63,9 +63,17 @@ stage2_directory = parent_directory + "/data/stage2/"
 stage2_processed_directory = parent_directory + "/data/stage2_processed/"
 stage2_nsclean_directory = parent_directory + "/data/stage2_nsclean/"
 stage3_directory = parent_directory + "/data/stage3/"
-stage3_processed_directory = parent_directory + "/data/stage3_processed/"  # For post-pipeline processing
+stage3_processed_directory = (
+    parent_directory + "/data/stage3_processed/"
+)  # For post-pipeline processing
 
 # Create above folders if they don't already exist
-for folder in [uncal_directory, stage1_directory, stage2_directory, stage3_directory, stage3_processed_directory]:
+for folder in [
+    uncal_directory,
+    stage1_directory,
+    stage2_directory,
+    stage3_directory,
+    stage3_processed_directory,
+]:
     if not os.path.exists(folder):
         os.makedirs(folder)
