@@ -1,7 +1,10 @@
 import os
 
 # Update to a path in your system (see details below at "Reference files")
-os.environ["CRDS_PATH"] = "/Users/ajshajib/Research/1131_JWST/CRDS/"
+current_directory = os.getcwd()
+parent_directory = os.path.abspath(os.path.join(current_directory, os.pardir))
+
+os.environ["CRDS_PATH"] = parent_directory + "/CRDS/"
 os.environ["CRDS_SERVER_URL"] = "https://jwst-crds.stsci.edu"
 
 import glob
@@ -52,9 +55,6 @@ from jwst.extract_1d.extract_1d_step import Extract1dStep
 # Arrange our directory structure.
 # All 16 uncal_directory files should be in the `uncal_files' folder.
 # We will place the outputs of each pipeline stage in new folders, easier to keep track of.
-here = os.getcwd()
-parent_directory = os.path.abspath(os.path.join(here, os.pardir))
-
 uncal_directory = parent_directory + "/data/uncal/"
 stage1_directory = parent_directory + "/data/stage1/"
 stage1_processed_directory = parent_directory + "/data/stage1_processed/"
