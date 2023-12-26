@@ -15,8 +15,7 @@ The notebooks in this repository demonstrate how to apply various stages of data
   from the calibrated cal images using the `NSClean` pacakage.
 - **Stage 3 reduction**: This notebook shows how to combine multiple exposures of 
   the same source into a single datacube using the spec3 pipeline.
-- **Clean up SFLAT**: This notebook is a Python script that performs a custom clean 
-  up of the SFLAT (spectral flat field) reference file.
+- **Clean up SFLAT**: This notebook performs a custom clean-up of the SFLAT (spectral flat field) reference file.
 
 Run the notebooks in the following order:
 
