@@ -19,6 +19,7 @@ from astropy.io import fits
 
 # JWST data models
 from jwst import datamodels
+
 # Individual steps that make up calwebb_spec2 and datamodels
 from jwst.assign_wcs.assign_wcs_step import AssignWcsStep
 from jwst.associations.asn_from_list import asn_from_list
