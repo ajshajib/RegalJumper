@@ -1,12 +1,20 @@
 import glob
 import os
 
-# Packages that allow us to get information about objects:
+# Update to a path in your system (see details below at "Reference files")
+current_directory = os.getcwd()
+parent_directory = os.path.abspath(os.path.join(current_directory, os.pardir))
+
+os.environ["CRDS_PATH"] = parent_directory + "/CRDS/"
+os.environ["CRDS_SERVER_URL"] = "https://jwst-crds.stsci.edu"
+
+
+# Packages that allow us to get information about objects
 import asdf
 import jwst
 import stcal
 
-# Astropy tools:
+# Astropy tools
 from astropy.io import fits
 
 # JWST data models
@@ -39,13 +47,6 @@ from jwst.straylight.straylight_step import StraylightStep
 from jwst.wavecorr.wavecorr_step import WavecorrStep
 from jwst.wfss_contam import WfssContamStep
 
-
-# Update to a path in your system (see details below at "Reference files")
-current_directory = os.getcwd()
-parent_directory = os.path.abspath(os.path.join(current_directory, os.pardir))
-
-os.environ["CRDS_PATH"] = parent_directory + "/CRDS/"
-os.environ["CRDS_SERVER_URL"] = "https://jwst-crds.stsci.edu"
 
 print("# JWST pipe version = {0:s}".format(jwst.__version__))
 print("# STCAL version = {0:s}".format(stcal.__version__))
