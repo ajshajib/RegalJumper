@@ -5,6 +5,8 @@ import os
 current_directory = os.getcwd()
 parent_directory = os.path.abspath(os.path.join(current_directory, os.pardir))
 
+print(parent_directory + "/CRDS/")
+
 os.environ["CRDS_PATH"] = parent_directory + "/CRDS/"
 os.environ["CRDS_SERVER_URL"] = "https://jwst-crds.stsci.edu"
 
@@ -13,6 +15,7 @@ os.environ["CRDS_SERVER_URL"] = "https://jwst-crds.stsci.edu"
 import asdf
 import jwst
 import stcal
+import crds
 
 # Astropy tools
 from astropy.io import fits
@@ -49,8 +52,9 @@ from jwst.wavecorr.wavecorr_step import WavecorrStep
 from jwst.wfss_contam import WfssContamStep
 
 
-print("# JWST pipe version = {0:s}".format(jwst.__version__))
-print("# STCAL version = {0:s}".format(stcal.__version__))
+print(f"# JWST pipe version = {jwst.__version__}")
+print(f"# STCAL version = {stcal.__version__}")
+print(f"# CRDS context = {crds.get_context_name('jwst')}")
 
 # Arrange our directory structure
 # We will place the outputs of each pipeline stage in new folders, easier to keep track of.
@@ -58,6 +62,7 @@ uncal_directory = parent_directory + "/data/uncal/"
 stage1_directory = parent_directory + "/data/stage1/"
 stage1_processed_directory = parent_directory + "/data/stage1_processed/"
 stage1_nsclean_directory = parent_directory + "/data/stage1_nsclean/"
+stage2_leakcal_directory = parent_directory + "/data/stage2_leakcal/"
 stage2_directory = parent_directory + "/data/stage2/"
 stage2_processed_directory = parent_directory + "/data/stage2_processed/"
 stage2_nsclean_directory = parent_directory + "/data/stage2_nsclean/"
@@ -70,7 +75,12 @@ stage3_processed_directory = (
 for folder in [
     uncal_directory,
     stage1_directory,
+    stage1_processed_directory,
+    stage1_nsclean_directory,
+    stage2_leakcal_directory,
     stage2_directory,
+    stage2_processed_directory,
+    stage2_nsclean_directory,
     stage3_directory,
     stage3_processed_directory,
 ]:
