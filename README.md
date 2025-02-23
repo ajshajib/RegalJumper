@@ -1,4 +1,4 @@
-# RᴇɢᴀʟJᴜᴍᴘᴇʀ: a custom reduction pipeline for JWST/NIRSpec IFU
+# RᴇɢᴀʟJᴜᴍᴘᴇʀ: a custom reduction pipeline for JWST/NIRSpec IFS
 
 This repository contains a set of Jupyter notebooks and Python scripts to perform data reduction of **NIRSpec** observations from the **JWST**.
 
